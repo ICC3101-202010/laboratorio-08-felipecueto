@@ -1,0 +1,12 @@
+C:\Users\felij\Desktop\Lab8\obj\Debug\Lab8.csprojAssemblyReference.cache
+C:\Users\felij\Desktop\Lab8\obj\Debug\Lab8.Form1.resources
+C:\Users\felij\Desktop\Lab8\obj\Debug\Lab8.Properties.Resources.resources
+C:\Users\felij\Desktop\Lab8\obj\Debug\Lab8.csproj.GenerateResource.cache
+C:\Users\felij\Desktop\Lab8\obj\Debug\Lab8.csproj.CoreCompileInputs.cache
+C:\Users\felij\Desktop\Lab8\bin\Debug\Lab8.exe.config
+C:\Users\felij\Desktop\Lab8\bin\Debug\Lab8.exe
+C:\Users\felij\Desktop\Lab8\bin\Debug\Lab8.pdb
+C:\Users\felij\Desktop\Lab8\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\felij\Desktop\Lab8\obj\Debug\Lab8.csproj.CopyComplete
+C:\Users\felij\Desktop\Lab8\obj\Debug\Lab8.exe
+C:\Users\felij\Desktop\Lab8\obj\Debug\Lab8.pdb
