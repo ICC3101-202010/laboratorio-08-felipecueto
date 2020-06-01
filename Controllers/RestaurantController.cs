@@ -23,7 +23,7 @@ namespace Lab8.Controllers
         public void OnCreatRestaurant(object sender, CreatRestaurantEventArgs e)
         {
             restaurants.Add(new Restaurant(e.OnwerNameText, e.IdText, e.AttentionHour1Text,e.ExclusiveTables));
-            MessageBox.Show("Restoran creado");
+            MessageBox.Show("Restoran Agregado");
 
         }
 

@@ -24,7 +24,7 @@ namespace Lab8.Controllers
         public void OnCreatStore(object sender, CreatStoreEventArgs e)
         {
             stores.Add(new Store(e.OnwerNameText, e.IdText, e.AttentionHour1Text,e.CategoriesText));
-            MessageBox.Show("Tienda creada");
+            MessageBox.Show("Tienda Agregada");
         }
 
         public bool OnveryfyexistCinema(object sender, VerifyLocalExistEventArgs e)

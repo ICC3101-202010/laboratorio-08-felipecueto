@@ -26,16 +26,19 @@ namespace Lab8
         public event GetCinemaEventHandler gotCinema;
         public delegate List<Store> GetStoreEventHandler(object source, GetStoreEventsArgs args);
         public event GetStoreEventHandler gotStore;
-        List<string> idList= new List<string>();
+        List<string> idList = new List<string>() { "00000000" };
+
         public Form1()
         {
             InitializeComponent();
             VerLocalesPanel.Visible = false;
+           
 
         }
 
         private void CrearLocalButton_Click(object sender, EventArgs e)
         {
+            bool idnotexist = true;
             string exclusiveTables = "";
             string textbox = "";
             string attentionHour;
@@ -43,8 +46,27 @@ namespace Lab8
             string openHouse = HoraAperturaInput.Text;
             string closehouse = HoraCierreInput.Text;
             string id = IdTextbox.Text;
+            if (id.Length < 8)
+            {
+                MessageBox.Show("ID debe tener 8 caracteres");
+                idnotexist = false;
+            }
+            else
+            {
+                foreach (string i in idList)
+                {
+                    if (id == i)
+                    {
+                        MessageBox.Show("Este Id ya existe");
+                        idnotexist = false;
+                    }
+                }
+            }
+            if (idnotexist)
+            {
+                idList.Add(id);
+            }
             attentionHour = openHouse + "-" + closehouse;
-            MessageBox.Show(attentionHour);
             string localType = TipodelocalcomboBox.SelectedItem.ToString();
             if (localType == "Restaurante")
             {
@@ -60,77 +82,83 @@ namespace Lab8
             }
             else
             {
-
-                if (localType == "Cine")
+                if (idnotexist)
                 {
-                    textBoxCrearlocal.ResetText();
-                    DefaultLabel.Text = "Numero de salas";
-                    DefaultLabel.Visible = true;
-                    textBoxCrearlocal.Visible = true;
-                    MesasExclusivasComboBox.Visible = false;
-                    if (CreatCine != null)
+
+                    if (localType == "Cine")
                     {
-                        CreatCine(this, new CreatCinemaEventArgs() { OnwerNameText = ownerName, IdText = id, AttentionHour1Text = attentionHour, NRooms = textbox });
-                    }
+                        textBoxCrearlocal.ResetText();
+                        DefaultLabel.Text = "Numero de salas";
+                        DefaultLabel.Visible = true;
+                        textBoxCrearlocal.Visible = true;
+                        MesasExclusivasComboBox.Visible = false;
+                        if (CreatCine != null)
+                        {
+                            CreatCine(this, new CreatCinemaEventArgs() { OnwerNameText = ownerName, IdText = id, AttentionHour1Text = attentionHour, NRooms = textbox });
+                        }
 
-                }
-                if (localType == "Restaurante")   
-                {
-                    DefaultLabel.Visible = false;
-                    MesasExclusivasComboBox.Visible = true;
-                    MesasExclusivasComboBox.SelectedIndex = 0;
+                    }
+                    if (localType == "Restaurante")
+                    {
+                        DefaultLabel.Visible = false;
+                        MesasExclusivasComboBox.Visible = true;
+                        MesasExclusivasComboBox.SelectedIndex = 0;
+                        textBoxCrearlocal.Visible = false;
+                        textBoxCrearlocal.ResetText();
+                        if (CreatRestaurant != null)
+                        {
+                            CreatRestaurant(this, new CreatRestaurantEventArgs() { OnwerNameText = ownerName, IdText = id, AttentionHour1Text = attentionHour, ExclusiveTables = exclusiveTables });
+                        }
+
+
+
+                    }
+                    if (localType == "Tienda")
+                    {
+                        textBoxCrearlocal.ResetText();
+                        DefaultLabel.Text = "Ingrse la Categoria";
+                        DefaultLabel.Visible = true;
+                        textBoxCrearlocal.Visible = true;
+                        MesasExclusivasComboBox.Visible = false;
+                        string categories = textBoxCrearlocal.Text;
+                        if (CreatStore != null)
+                        {
+                            CreatStore(this, new CreatStoreEventArgs() { OnwerNameText = ownerName, IdText = id, AttentionHour1Text = attentionHour, CategoriesText = textbox });
+
+                        }
+
+                    }
+                    if (localType == "Recreacional")
+                    {
+                        if (CreatRecreatinal != null)
+                        {
+                            CreatRecreatinal(this, new CreatRecreationalEventArgs() { OnwerNameText = ownerName, IdText = id, AttentionHour1Text = attentionHour });
+
+                        }
+
+
+                    }
+                    NombreDueñoInput.ResetText();
+                    HoraAperturaInput.ResetText();
+                    HoraCierreInput.ResetText();
+                    IdTextbox.ResetText();
+                    textBoxCrearlocal.ResetText();
+                    textBoxCrearlocal.ResetText();
+                    TipodelocalcomboBox.SelectedIndex = 0;
+                    VerificarLocalButton.Visible = false;
+                    HoraAperturaInput.Visible = false;
+                    HoraAperturaLabel.Visible = false;
+                    HoraCierreInput.Visible = false;
+                    HoraCierreLabel.Visible = false;
+                    CrearLocalDueñoLabel.Visible = false;
+                    NombreDueñoInput.Visible = false;
+                    IdTextbox.Visible = false;
+                    IdLabel.Visible = false;
+                    MesasExclusivasComboBox.Visible = false;
                     textBoxCrearlocal.Visible = false;
-                    textBoxCrearlocal.ResetText();
-                    if (CreatRestaurant != null)
-                    {
-                         CreatRestaurant(this, new CreatRestaurantEventArgs() { OnwerNameText = ownerName, IdText = id, AttentionHour1Text = attentionHour, ExclusiveTables= exclusiveTables });
-                    }
-
-
+                    DefaultLabel.Visible = false;
 
                 }
-                if (localType == "Tienda")
-                {
-                    textBoxCrearlocal.ResetText();
-                    DefaultLabel.Text = "Ingrse la Categoria";
-                    DefaultLabel.Visible = true;
-                    textBoxCrearlocal.Visible = true;
-                    MesasExclusivasComboBox.Visible = false;
-                    string categories = textBoxCrearlocal.Text;
-                    if (CreatStore != null)
-                    {
-                        CreatStore(this, new CreatStoreEventArgs() { OnwerNameText = ownerName, IdText = id, AttentionHour1Text = attentionHour, CategoriesText = textbox });
-
-                    }
-
-                }
-                if (localType == "Recreacional")
-                {
-                   if (CreatRecreatinal != null)
-                    {
-                        CreatRecreatinal(this, new CreatRecreationalEventArgs() { OnwerNameText = ownerName, IdText = id , AttentionHour1Text = attentionHour });
-                       
-                    }
-                    
-
-                }
-                NombreDueñoInput.ResetText();
-                HoraAperturaInput.ResetText();
-                HoraCierreInput.ResetText();
-                IdTextbox.ResetText();
-                textBoxCrearlocal.ResetText();
-                TipodelocalcomboBox.SelectedIndex=0;
-                VerificarLocalButton.Visible = false;
-                HoraAperturaInput.Visible = false;
-                HoraAperturaLabel.Visible = false;
-                HoraCierreInput.Visible = false;
-                HoraCierreLabel.Visible = false;
-                CrearLocalDueñoLabel.Visible = false;
-                NombreDueñoInput.Visible = false;
-                IdTextbox.Visible = false;
-                IdLabel.Visible = false;
-                MesasExclusivasComboBox.Visible = false;
-
 
             }
         }
@@ -196,37 +224,6 @@ namespace Lab8
             IdTextbox.Visible = false;
             IdLabel.Visible = false;
             MesasExclusivasComboBox.Visible = false;
-        }
-
-        private void CrearLocalButton_Click_1(object sender, EventArgs e)
-        {
-            string exclusiveTables;
-            string attentionHour;
-            string ownerName = NombreDueñoInput.Text;
-            string openHouse = HoraAperturaInput.Text;
-            string closehouse = HoraCierreInput.Text;
-            attentionHour = openHouse + "-" + closehouse;
-            string localType = TipodelocalcomboBox.SelectedItem.ToString();
-           
-            string id = GenerateID();
-
-            if (localType == "Cine")
-            {
-                
-
-
-            }
-            if (localType == "Restaurante")
-            {
-                
-
-            }
-            if (localType == "Tienda")
-            {
-               
-
-
-            }
         }
 
         private void SeeAllLocalButton_Click(object sender, EventArgs e)
@@ -304,10 +301,100 @@ namespace Lab8
     
         private void BuscarBuston_Click(object sender, EventArgs e)
         {
+            bool id = false;
             string idSearch = SearchTextBox.Text;
-            RevisarLocalListbox.ResetText();
-            SearchTextBox.ResetText();
-            RevisarLocalListbox.Visible = true;
+            RevisarLocalListbox.Items.Clear();
+            foreach (string i in idList)
+            {
+                if (idSearch == i)
+                {
+                    id = true;
+                    
+                }
+                
+            }
+            if (id)
+            {
+                RevisarLocalListbox.Visible = true;
+                if (gotRestaurant != null)
+                {
+                    List<Restaurant> restaurants = gotRestaurant(this, new GetRestaurantEventsArgs() { });
+                    foreach (Restaurant restaurant in restaurants)
+                    {
+                        if (idSearch == restaurant.Id)
+                        {
+                            RevisarLocalListbox.Items.Add("Restoran Encontrado:");
+                            RevisarLocalListbox.Items.Add("");
+                            RevisarLocalListbox.Items.Add("Dueño: " + restaurant.OnwerName);
+                            RevisarLocalListbox.Items.Add("Id: " + restaurant.Id);
+                            RevisarLocalListbox.Items.Add("Horario Atencion: " + restaurant.AttentionHour);
+                            RevisarLocalListbox.Items.Add("Mesas Exlusivas: " + restaurant.ExclusiveTables);
+                           
+                        }
+
+                    }
+                }
+
+                if (GotRecreational != null)
+                {
+                    List<Recreational> recreationals = GotRecreational(this, new GetRecreationalEventArgs() { });
+                    foreach (Recreational recreational in recreationals)
+                    {
+                        if (recreational.Id == idSearch) 
+                        {
+                            RevisarLocalListbox.Items.Add("Local Recreacional encontrado:");
+                            RevisarLocalListbox.Items.Add("");
+                            RevisarLocalListbox.Items.Add("Dueño: " + recreational.OnwerName);
+                            RevisarLocalListbox.Items.Add("Id: " + recreational.Id);
+                            RevisarLocalListbox.Items.Add("Horario Atencion: " + recreational.AttentionHour);
+                            
+                        }
+                    }
+                }
+                if (gotCinema != null)
+                {
+                    List<Cinema> cinemas = gotCinema(this, new GetCinemaEventsArgs() { });
+                    foreach (Cinema cinema in cinemas)
+                    {
+                        if (cinema.Id == idSearch)
+                        {
+                            RevisarLocalListbox.Items.Add("Cine encontrado");
+                            RevisarLocalListbox.Items.Add("");
+                            RevisarLocalListbox.Items.Add("Dueño: " + cinema.OnwerName);
+                            RevisarLocalListbox.Items.Add("Id: " + cinema.Id);
+                            RevisarLocalListbox.Items.Add("Horario Atencion: " + cinema.AttentionHour);
+                            RevisarLocalListbox.Items.Add("Numero de salas: " + cinema.NRooms);
+                            
+                        }
+
+                    }
+                }
+                if (gotStore != null)
+                {
+                    List<Store> stores = gotStore(this, new GetStoreEventsArgs() { });
+                    foreach (Store store in stores)
+                    {
+                        if (idSearch == store.Id)
+                        {
+                            RevisarLocalListbox.Items.Add("Tienda encontrada:");
+                            RevisarLocalListbox.Items.Add("");
+                            RevisarLocalListbox.Items.Add("Dueño: " + store.OnwerName);
+                            RevisarLocalListbox.Items.Add("Id: " + store.Id);
+                            RevisarLocalListbox.Items.Add("Horario Atencion: " + store.AttentionHour);
+                            RevisarLocalListbox.Items.Add("Categoria: " + store.Categories);
+                            
+                        }
+
+                    }
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Id no encontrado");
+                SearchTextBox.ResetText();
+                RevisarLocalListbox.Visible = false;
+            }
         }
 
         private void CheckLocalButton_Click(object sender, EventArgs e)
@@ -383,5 +470,7 @@ namespace Lab8
 
 
         }
+
+       
     }
 }

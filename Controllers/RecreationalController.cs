@@ -24,7 +24,7 @@ namespace Lab8.Controllers
         {
 
             recreationals.Add(new Recreational(e.OnwerNameText, e.IdText, e.AttentionHour1Text));
-            MessageBox.Show("Recreacional creado");
+            MessageBox.Show("Local Recreacional Agregado");
        }
 
         public bool OnveryfyexistCinema(object sender, VerifyLocalExistEventArgs e)

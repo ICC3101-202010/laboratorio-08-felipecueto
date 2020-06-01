@@ -24,7 +24,7 @@ namespace Lab8.Controllers
         public void OncreatCinema(object sender, CreatCinemaEventArgs e)
         {
             cinemas.Add(new Cinema(e.OnwerNameText,e.IdText, e.AttentionHour1Text, e.NRooms));
-            MessageBox.Show("Cine creado");
+            MessageBox.Show("Cine Agregado");
         }
         public bool OnveryfyexistCinema(object sender, VerifyLocalExistEventArgs e)
         {

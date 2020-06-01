@@ -28,13 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.iconPictureMain = new FontAwesome.Sharp.IconPictureBox();
             this.RevisarLocalPanel = new System.Windows.Forms.Panel();
+            this.IngreseElIdLabel = new System.Windows.Forms.Label();
             this.RevisarLocalListbox = new System.Windows.Forms.ListBox();
             this.BuscarBuston = new FontAwesome.Sharp.IconButton();
             this.RevisarLocal = new System.Windows.Forms.Label();
             this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.AgregarLocalPanel = new System.Windows.Forms.Panel();
+            this.Tipodelocal = new FontAwesome.Sharp.IconButton();
             this.IdTextbox = new System.Windows.Forms.TextBox();
             this.IdLabel = new System.Windows.Forms.Label();
             this.MesasExclusivasComboBox = new System.Windows.Forms.ComboBox();
@@ -57,30 +61,50 @@
             this.CheckLocalButton = new FontAwesome.Sharp.IconButton();
             this.AgregarLocalButton = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Tipodelocal = new FontAwesome.Sharp.IconButton();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.MainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureMain)).BeginInit();
             this.RevisarLocalPanel.SuspendLayout();
             this.AgregarLocalPanel.SuspendLayout();
             this.VerLocalesPanel.SuspendLayout();
             this.SidePanel.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // MainPanel
             // 
-            this.MainPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.MainPanel.BackColor = System.Drawing.Color.Gray;
             this.MainPanel.Controls.Add(this.RevisarLocalPanel);
             this.MainPanel.Controls.Add(this.AgregarLocalPanel);
             this.MainPanel.Controls.Add(this.VerLocalesPanel);
             this.MainPanel.Controls.Add(this.SidePanel);
+            this.MainPanel.Controls.Add(this.iconPictureMain);
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 0);
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(1057, 601);
             this.MainPanel.TabIndex = 0;
             // 
+            // iconPictureMain
+            // 
+            this.iconPictureMain.BackColor = System.Drawing.Color.Gray;
+            this.iconPictureMain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureMain.IconChar = FontAwesome.Sharp.IconChar.StoreAlt;
+            this.iconPictureMain.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureMain.IconSize = 169;
+            this.iconPictureMain.Location = new System.Drawing.Point(604, 189);
+            this.iconPictureMain.Name = "iconPictureMain";
+            this.iconPictureMain.Size = new System.Drawing.Size(169, 169);
+            this.iconPictureMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.iconPictureMain.TabIndex = 4;
+            this.iconPictureMain.TabStop = false;
+            // 
             // RevisarLocalPanel
             // 
             this.RevisarLocalPanel.AutoScroll = true;
+            this.RevisarLocalPanel.BackColor = System.Drawing.Color.Gray;
+            this.RevisarLocalPanel.Controls.Add(this.IngreseElIdLabel);
             this.RevisarLocalPanel.Controls.Add(this.RevisarLocalListbox);
             this.RevisarLocalPanel.Controls.Add(this.BuscarBuston);
             this.RevisarLocalPanel.Controls.Add(this.RevisarLocal);
@@ -92,15 +116,26 @@
             this.RevisarLocalPanel.TabIndex = 3;
             this.RevisarLocalPanel.Visible = false;
             // 
+            // IngreseElIdLabel
+            // 
+            this.IngreseElIdLabel.Location = new System.Drawing.Point(6, 87);
+            this.IngreseElIdLabel.Name = "IngreseElIdLabel";
+            this.IngreseElIdLabel.Size = new System.Drawing.Size(161, 67);
+            this.IngreseElIdLabel.TabIndex = 4;
+            this.IngreseElIdLabel.Text = "Ingrese el ID";
+            this.IngreseElIdLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // RevisarLocalListbox
             // 
             this.RevisarLocalListbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.RevisarLocalListbox.BackColor = System.Drawing.Color.Silver;
+            this.RevisarLocalListbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RevisarLocalListbox.FormattingEnabled = true;
             this.RevisarLocalListbox.ItemHeight = 20;
-            this.RevisarLocalListbox.Location = new System.Drawing.Point(139, 261);
+            this.RevisarLocalListbox.Location = new System.Drawing.Point(176, 227);
             this.RevisarLocalListbox.Name = "RevisarLocalListbox";
-            this.RevisarLocalListbox.Size = new System.Drawing.Size(523, 284);
+            this.RevisarLocalListbox.Size = new System.Drawing.Size(489, 342);
             this.RevisarLocalListbox.TabIndex = 3;
             this.RevisarLocalListbox.Visible = false;
             // 
@@ -108,25 +143,28 @@
             // 
             this.BuscarBuston.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.BuscarBuston.BackColor = System.Drawing.Color.White;
+            this.BuscarBuston.FlatAppearance.BorderSize = 0;
+            this.BuscarBuston.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BuscarBuston.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.BuscarBuston.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.BuscarBuston.IconColor = System.Drawing.Color.Black;
+            this.BuscarBuston.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.BuscarBuston.IconSize = 36;
-            this.BuscarBuston.Location = new System.Drawing.Point(320, 163);
+            this.BuscarBuston.Location = new System.Drawing.Point(347, 149);
             this.BuscarBuston.Name = "BuscarBuston";
             this.BuscarBuston.Rotation = 0D;
             this.BuscarBuston.Size = new System.Drawing.Size(166, 60);
             this.BuscarBuston.TabIndex = 2;
             this.BuscarBuston.Text = "Buscar";
             this.BuscarBuston.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BuscarBuston.UseVisualStyleBackColor = true;
+            this.BuscarBuston.UseVisualStyleBackColor = false;
             this.BuscarBuston.Click += new System.EventHandler(this.BuscarBuston_Click);
             // 
             // RevisarLocal
             // 
             this.RevisarLocal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RevisarLocal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RevisarLocal.Font = new System.Drawing.Font("Stencil", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RevisarLocal.Location = new System.Drawing.Point(221, 33);
             this.RevisarLocal.Name = "RevisarLocal";
             this.RevisarLocal.Size = new System.Drawing.Size(386, 56);
@@ -138,14 +176,15 @@
             // 
             this.SearchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchTextBox.Location = new System.Drawing.Point(139, 106);
+            this.SearchTextBox.Location = new System.Drawing.Point(173, 107);
             this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(523, 26);
+            this.SearchTextBox.Size = new System.Drawing.Size(489, 26);
             this.SearchTextBox.TabIndex = 0;
             // 
             // AgregarLocalPanel
             // 
             this.AgregarLocalPanel.AutoScroll = true;
+            this.AgregarLocalPanel.BackColor = System.Drawing.Color.Gray;
             this.AgregarLocalPanel.Controls.Add(this.Tipodelocal);
             this.AgregarLocalPanel.Controls.Add(this.IdTextbox);
             this.AgregarLocalPanel.Controls.Add(this.IdLabel);
@@ -169,8 +208,28 @@
             this.AgregarLocalPanel.TabIndex = 1;
             this.AgregarLocalPanel.Visible = false;
             // 
+            // Tipodelocal
+            // 
+            this.Tipodelocal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Tipodelocal.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.Tipodelocal.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart;
+            this.Tipodelocal.IconColor = System.Drawing.Color.Red;
+            this.Tipodelocal.IconSize = 20;
+            this.Tipodelocal.Location = new System.Drawing.Point(347, 139);
+            this.Tipodelocal.Name = "Tipodelocal";
+            this.Tipodelocal.Rotation = 0D;
+            this.Tipodelocal.Size = new System.Drawing.Size(136, 44);
+            this.Tipodelocal.TabIndex = 17;
+            this.Tipodelocal.Text = "Tipo de local";
+            this.Tipodelocal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Tipodelocal.UseVisualStyleBackColor = true;
+            this.Tipodelocal.Click += new System.EventHandler(this.Tipodelocal_Click);
+            // 
             // IdTextbox
             // 
+            this.IdTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.IdTextbox.Location = new System.Drawing.Point(229, 377);
             this.IdTextbox.Name = "IdTextbox";
             this.IdTextbox.Size = new System.Drawing.Size(364, 26);
@@ -229,7 +288,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.VerificarLocalButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.VerificarLocalButton.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.VerificarLocalButton.IconColor = System.Drawing.Color.Black;
+            this.VerificarLocalButton.IconColor = System.Drawing.Color.Red;
             this.VerificarLocalButton.IconSize = 36;
             this.VerificarLocalButton.Location = new System.Drawing.Point(320, 537);
             this.VerificarLocalButton.Name = "VerificarLocalButton";
@@ -331,7 +390,7 @@
             // 
             this.AgragarPanelLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.AgragarPanelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AgragarPanelLabel.Font = new System.Drawing.Font("Stencil", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AgragarPanelLabel.Location = new System.Drawing.Point(168, 0);
             this.AgragarPanelLabel.Name = "AgragarPanelLabel";
             this.AgragarPanelLabel.Size = new System.Drawing.Size(451, 80);
@@ -341,6 +400,7 @@
             // 
             // VerLocalesPanel
             // 
+            this.VerLocalesPanel.BackColor = System.Drawing.Color.Gray;
             this.VerLocalesPanel.Controls.Add(this.VerLocalesListListBox);
             this.VerLocalesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.VerLocalesPanel.Location = new System.Drawing.Point(284, 0);
@@ -352,16 +412,20 @@
             // 
             this.VerLocalesListListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.VerLocalesListListBox.BackColor = System.Drawing.Color.Silver;
+            this.VerLocalesListListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.VerLocalesListListBox.Cursor = System.Windows.Forms.Cursors.Default;
             this.VerLocalesListListBox.FormattingEnabled = true;
             this.VerLocalesListListBox.ItemHeight = 20;
             this.VerLocalesListListBox.Location = new System.Drawing.Point(66, 27);
             this.VerLocalesListListBox.Name = "VerLocalesListListBox";
-            this.VerLocalesListListBox.Size = new System.Drawing.Size(655, 524);
+            this.VerLocalesListListBox.Size = new System.Drawing.Size(655, 502);
             this.VerLocalesListListBox.TabIndex = 0;
             // 
             // SidePanel
             // 
             this.SidePanel.AutoScroll = true;
+            this.SidePanel.BackColor = System.Drawing.Color.Gray;
             this.SidePanel.Controls.Add(this.SeeAllLocalButton);
             this.SidePanel.Controls.Add(this.CheckLocalButton);
             this.SidePanel.Controls.Add(this.AgregarLocalButton);
@@ -374,96 +438,110 @@
             // 
             // SeeAllLocalButton
             // 
+            this.SeeAllLocalButton.BackColor = System.Drawing.Color.White;
             this.SeeAllLocalButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SeeAllLocalButton.FlatAppearance.BorderSize = 0;
+            this.SeeAllLocalButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.SeeAllLocalButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.SeeAllLocalButton.IconChar = FontAwesome.Sharp.IconChar.List;
-            this.SeeAllLocalButton.IconColor = System.Drawing.Color.Black;
+            this.SeeAllLocalButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.SeeAllLocalButton.IconSize = 30;
-            this.SeeAllLocalButton.Location = new System.Drawing.Point(0, 168);
+            this.SeeAllLocalButton.Location = new System.Drawing.Point(0, 189);
             this.SeeAllLocalButton.Name = "SeeAllLocalButton";
             this.SeeAllLocalButton.Rotation = 0D;
             this.SeeAllLocalButton.Size = new System.Drawing.Size(284, 50);
             this.SeeAllLocalButton.TabIndex = 3;
             this.SeeAllLocalButton.Text = "Ver Locales";
             this.SeeAllLocalButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.SeeAllLocalButton.UseVisualStyleBackColor = true;
+            this.SeeAllLocalButton.UseVisualStyleBackColor = false;
             this.SeeAllLocalButton.Click += new System.EventHandler(this.SeeAllLocalButton_Click);
             // 
             // CheckLocalButton
             // 
+            this.CheckLocalButton.BackColor = System.Drawing.Color.White;
             this.CheckLocalButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CheckLocalButton.FlatAppearance.BorderSize = 0;
+            this.CheckLocalButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.CheckLocalButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.CheckLocalButton.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.CheckLocalButton.IconColor = System.Drawing.Color.Black;
+            this.CheckLocalButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.CheckLocalButton.IconSize = 30;
-            this.CheckLocalButton.Location = new System.Drawing.Point(0, 118);
+            this.CheckLocalButton.Location = new System.Drawing.Point(0, 139);
             this.CheckLocalButton.Name = "CheckLocalButton";
             this.CheckLocalButton.Rotation = 0D;
             this.CheckLocalButton.Size = new System.Drawing.Size(284, 50);
             this.CheckLocalButton.TabIndex = 2;
             this.CheckLocalButton.Text = "Revisar Local";
             this.CheckLocalButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.CheckLocalButton.UseVisualStyleBackColor = true;
+            this.CheckLocalButton.UseVisualStyleBackColor = false;
             this.CheckLocalButton.Click += new System.EventHandler(this.CheckLocalButton_Click);
             // 
             // AgregarLocalButton
             // 
+            this.AgregarLocalButton.BackColor = System.Drawing.Color.White;
             this.AgregarLocalButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.AgregarLocalButton.FlatAppearance.BorderSize = 0;
+            this.AgregarLocalButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AgregarLocalButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.AgregarLocalButton.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.AgregarLocalButton.IconColor = System.Drawing.Color.Black;
+            this.AgregarLocalButton.IconColor = System.Drawing.Color.Crimson;
             this.AgregarLocalButton.IconSize = 30;
-            this.AgregarLocalButton.Location = new System.Drawing.Point(0, 68);
+            this.AgregarLocalButton.Location = new System.Drawing.Point(0, 89);
             this.AgregarLocalButton.Name = "AgregarLocalButton";
             this.AgregarLocalButton.Rotation = 0D;
             this.AgregarLocalButton.Size = new System.Drawing.Size(284, 50);
             this.AgregarLocalButton.TabIndex = 1;
             this.AgregarLocalButton.Text = "Agregar Local";
             this.AgregarLocalButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.AgregarLocalButton.UseVisualStyleBackColor = true;
+            this.AgregarLocalButton.UseVisualStyleBackColor = false;
             this.AgregarLocalButton.Click += new System.EventHandler(this.AgregarLocalButton_Click);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.iconPictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(284, 68);
+            this.panel1.Size = new System.Drawing.Size(284, 89);
             this.panel1.TabIndex = 0;
             // 
-            // Tipodelocal
+            // iconPictureBox1
             // 
-            this.Tipodelocal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Tipodelocal.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.Tipodelocal.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.Tipodelocal.IconColor = System.Drawing.Color.Black;
-            this.Tipodelocal.IconSize = 16;
-            this.Tipodelocal.Location = new System.Drawing.Point(347, 139);
-            this.Tipodelocal.Name = "Tipodelocal";
-            this.Tipodelocal.Rotation = 0D;
-            this.Tipodelocal.Size = new System.Drawing.Size(136, 44);
-            this.Tipodelocal.TabIndex = 17;
-            this.Tipodelocal.Text = "Tipo de local";
-            this.Tipodelocal.UseVisualStyleBackColor = true;
-            this.Tipodelocal.Click += new System.EventHandler(this.Tipodelocal_Click);
+            this.iconPictureBox1.BackColor = System.Drawing.Color.Gray;
+            this.iconPictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.iconPictureBox1.ForeColor = System.Drawing.Color.Black;
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Store;
+            this.iconPictureBox1.IconColor = System.Drawing.Color.Black;
+            this.iconPictureBox1.IconSize = 89;
+            this.iconPictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(284, 89);
+            this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.iconPictureBox1.TabIndex = 0;
+            this.iconPictureBox1.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1057, 601);
             this.Controls.Add(this.MainPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(1079, 657);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Centro Comercial Uandes";
             this.MainPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureMain)).EndInit();
             this.RevisarLocalPanel.ResumeLayout(false);
             this.RevisarLocalPanel.PerformLayout();
             this.AgregarLocalPanel.ResumeLayout(false);
             this.AgregarLocalPanel.PerformLayout();
             this.VerLocalesPanel.ResumeLayout(false);
             this.SidePanel.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -500,6 +578,9 @@
         private System.Windows.Forms.TextBox IdTextbox;
         private System.Windows.Forms.Label IdLabel;
         private FontAwesome.Sharp.IconButton Tipodelocal;
+        private System.Windows.Forms.Label IngreseElIdLabel;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
+        private FontAwesome.Sharp.IconPictureBox iconPictureMain;
     }
 }
 
